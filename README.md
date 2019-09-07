@@ -46,3 +46,6 @@
 ### Association
 - belongs_to :group
 - belongs_to :users
+
+# 修正必要な場合は以下に原因を記載
+
