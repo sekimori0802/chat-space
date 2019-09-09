@@ -1,14 +1,14 @@
 #chat-space DB設計
 
-## groupusテーブル
+## groupsテーブル
 
  |Column|Type|Options|
  |------|----|-------|
- |groupname|string|null: false,|
+ |name|string|null: false,|
  
 ### Association
 - has_many :groups_users
-- has_many :users, through:guroups_users
+- has_many :users, through: :guroups_users
 - has_many :messages 
 
 ## groups_usersテーブル
