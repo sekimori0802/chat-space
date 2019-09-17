@@ -1,6 +1,3 @@
-.flash-box
-  .flash-box__headerlogo
-    グループを作成しました
 .wrapper
   .chat-side
     .sideheader
@@ -67,11 +64,11 @@
     .form
       %form.new-message
         .input-box
-          %input.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}
+          %input.input-box__text{name: "message[content]", placeholder: "type a message", type:  "text"}
           %label.input-box__image
             = fa_icon 'picture-o', class: 'icon'
             %input.hidden{type: 'file'}
-        %input.submit-btm{:name => "commit", :value => "Send", :type => "submit"}
+        %input.submit-btm{name: "commit", value: "Send", type: "submit"}
 
 
 

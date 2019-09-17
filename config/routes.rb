@@ -1,4 +1,3 @@
 Rails.application.routes.draw do
-  get 'messages' =>'messages#index'
-  get 'guroups' => 'guroups#new'
+  root 'messages#index'
 end
