@@ -2,20 +2,20 @@ $(document).on('turbolinks:load', function(){
   function buildHTML(message) {
   var img = message.image != null  ?  `"${ message.image}"` : "";  
   var html = `<div class="message" message-id = "${message.id}"> 
-              <div class="upper-message">
-              <div class="upper-message__user-name">
-                ${message.name}
-             </div>
-             <div class="upper-message__date">
-                ${message.created_at}
-             </div> 
-             </div>
-             <div class="lower-message">
-             <p class="lower-message__content">
-                ${message.content}
-             </p>
-             <img class="lower-message__image" src=${img}>
-             </div>
+               <div class="upper-message">
+                <div class="upper-message__user-name">
+                  ${message.name}
+                </div>
+                <div class="upper-message__date">
+                   ${message.created_at}
+                </div> 
+              </div>
+               <div class="lower-message">
+                <p class="lower-message__content">
+                  ${message.content}
+                </p>
+                <img class="lower-message__image" src=${img}>
+                </div>
              </div>`
              return html;
     }
