@@ -1,21 +1,21 @@
 $(document).on('turbolinks:load', function(){
   function buildHTML(message) {
   var img = message.image != null  ?  `"${ message.image}"` : "";  
-  var html = `<div class="message" message-id = "${message.id}">
-              <div class="upper-message">
-              <div class="upper-message__user-name">
-                ${message.name}
-             </div>
-             <div class="upper-message__date">
-                ${message.created_at}
-             </div>
-             </div>
-             <div class="lower-message">
-             <p class="lower-message__content">
-                ${message.content}
-             </p>
-             <img class="lower-message__image" src=${img}>
-             </div>
+  var html = `<div class="message" message-id = "${message.id}"> 
+               <div class="upper-message">
+                <div class="upper-message__user-name">
+                  ${message.name}
+                </div>
+                <div class="upper-message__date">
+                   ${message.created_at}
+                </div> 
+              </div>
+               <div class="lower-message">
+                <p class="lower-message__content">
+                  ${message.content}
+                </p>
+                <img class="lower-message__image" src=${img}>
+                </div>
              </div>`
              return html;
     }
@@ -35,7 +35,7 @@ $.ajax({
    .done(function(data){
     var html = buildHTML(data);
       $('.messages').append(html);
-      $('#message_content').val('');
+      $('#message_content').val(''); 
       function scrollBottom(){
         var target = $('.message').last();
         var position = target.offset().top + $('.messages').scrollTop();
@@ -49,10 +49,10 @@ $.ajax({
       alert('エラー。');
   })
   .always(function(data){
-    $('.form__submit').prop('disabled', false);
+    $('.form__submit').prop('disabled', false); 
     
   })
 })
-})
+}) 
 
 
