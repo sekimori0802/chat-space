@@ -1,80 +1,30 @@
 .wrapper
-  .chat-side
-    .sideheader
-      .sideheader__box
-        %p.sideheader__box__name
-          sasao
-        %ul.sideheader__box__menu
-          %li.sideheader__box__menu__group
-            %i.sideheader__box__menu__group__icon1 
-              = fa_icon 'edit' 
-            -# %span<>
-          %li.sideheader__box__menu__group
-            %i.sideheader__box__menu__group__icon2
-              = fa_icon 'cog'
-    .groups
-      .group
-        %p.group__group-name
-          sample
-        %p.group__latest-message
-          疲れた〜
-      .group
-        %p.group__group-name
-          仮置き
-        %p.group__latest-message
-          まだメッセージはありません
-      .group
-        %p.group__group-name
-          sample
-        %p.group__latest-message
-          まだメッセージはありません
-          
-  .chat-main
-    .main-header
-      .main-header__leftbox
-        .main-header__leftbox__group
-          sample
-        .main-header__leftbox__member
-          Member： 
-          %il.main-header__leftbox__member__list
-            sample2
-          %il.main-header__leftbox__member__list2
-            sample
-          %il.main-header__leftbox__member__list2
-            sasa
-      .main-header__edit-btm
-        Edit
+
+  = render 'shared/side-bar'
+
+  .chat
+    .header
+      .left-header
+        .left-header__title
+          グループ名
+        %ul.left-header__members
+          Member：
+          %li.member
+            メンバー名
+          %li.member
+            メンバー名
+          %li.member
+            メンバー名
+      .right-header
+        .right-header__button
+          Edit
     .messages
-      .message
-        .message__info
-          %p.message__info__talker
-            sasa 
-          %p.message__info__date
-            2019/09/06(Fri) 17:34:01
-        %p.message__text
-          aaa
-      .message
-        .message__info
-          %p.message__info__talker
-            sasa 
-          %p.message__info__date
-            2019/09/06(Fri) 17:34:01
-        %p.message__text
-          aaa
+      = render partial: 'message', collection: @messages
     .form
-      %form.new-message
-        .input-box
-          %input.input-box__text{name: "message[content]", placeholder: "type a message", type:  "text"}
-          %label.input-box__image
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
             = fa_icon 'picture-o', class: 'icon'
-            %input.hidden{type: 'file'}
-        %input.submit-btm{name: "commit", value: "Send", type: "submit"}
-
-
-
-
-
-      
-
-
-      
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
