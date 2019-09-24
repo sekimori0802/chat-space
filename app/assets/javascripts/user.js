@@ -64,14 +64,4 @@ $(document).on('turbolinks:load', function(){
 });
 
 
-// var btn = <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}"></div>
-// // $(document).on('click',btn, function() {
-  
-// //   function appendUser(user){
-// //     var html = `<div class='chat-group-user'>
-// //                   <input name='group[user_ids][]' type='hidden' value="${user.id}">
-// //                   <p class='chat-group-user__name'>${user.name}</p>
-// //                   <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
-// //               </div>`
-// //     user_list.append(html);
 
