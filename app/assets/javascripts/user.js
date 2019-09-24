@@ -29,7 +29,7 @@ $(document).on('turbolinks:load', function(){
 
  $("#result").on("keyup", function() {
    var input = $("#result").val();
-   if (user == ""){
+   if (user === ""){
 
   } else {
    $.ajax({
@@ -37,8 +37,7 @@ $(document).on('turbolinks:load', function(){
     url:  '/users',
     data: { keyword: input },
     dataType: 'json'
-  })
-   
+ })
 
  .done(function(users){
   $(".chat__user-search-field chat-group-form__input").empty();
@@ -66,7 +65,6 @@ $(document).on('turbolinks:load', function(){
     $(this).parent().remove()
   });
 });
-
 
 
 
