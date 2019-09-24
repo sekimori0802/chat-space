@@ -29,12 +29,16 @@ $(document).on('turbolinks:load', function(){
 
  $("#result").on("keyup", function() {
    var input = $("#result").val();
+   if (user == ""){
+
+  } else {
    $.ajax({
     type: 'GET',
     url:  '/users',
     data: { keyword: input },
     dataType: 'json'
- })
+  })
+   
 
  .done(function(users){
   $(".chat__user-search-field chat-group-form__input").empty();
