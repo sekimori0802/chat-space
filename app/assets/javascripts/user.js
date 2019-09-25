@@ -39,6 +39,7 @@ $(document).on('turbolinks:load', function(){
     dataType: 'json'
  })
 
+  }
  .done(function(users){
   $(".chat__user-search-field chat-group-form__input").empty();
   if (users.length!== 0) {
