@@ -26,7 +26,7 @@ $(document).on('turbolinks:load', function(){
       var message_group_url = window.location.href
       if (message_group_url.match(/\/groups\/\d+\/messages/)) {
       var last_message_id = $('.message:last').data("message-id");
-      console.log(last_message_id);
+      
       }
         $.ajax ({
         url: "api/messages",
@@ -48,7 +48,7 @@ $(document).on('turbolinks:load', function(){
       })
       })
       .fail(function() {
-        console.log('error');
+        alert('エラー。');
       });
     }
   $('#new_message').on('submit', function(e){
