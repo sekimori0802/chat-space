@@ -29,9 +29,9 @@ $(document).on('turbolinks:load', function(){
 
  $("#result").on("keyup", function() {
    var input = $("#result").val();
-   if (user === ""){
+  //  if (user === ""){
 
-  } else {
+  // } else {
    $.ajax({
     type: 'GET',
     url:  '/users',
