@@ -7,15 +7,13 @@ $(document).on('turbolinks:load', function(){
                <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加</div>
                </div>
              </div>`
-    user_list.append(html);
+    user_list.empty().append(html);
   }
   function appendErrMsgToHTML(miss){
-     var html = `<div class="chat-group-user clearfix">
-                  <div class="chat-group-user ">
-                    <p class="chat-group-user__name">${miss}</p>
-                  </div>
-                </div>`
-     user_list.append(html);
+     var html = `<div class="chat-group-user clearfix">${miss}
+                </div>` 
+           
+     user_list.empty().append(html);      
   }
   var group_list = $("#add-group");
     function appendGroups(name,id){
@@ -29,8 +27,8 @@ $(document).on('turbolinks:load', function(){
 
  $("#result").on("keyup", function() {
    var input = $("#result").val();
-   if (user === ""){
-
+   if (input === ""){
+    $("#result").empty();
   } else {
    $.ajax({
     type: 'GET',
@@ -39,7 +37,9 @@ $(document).on('turbolinks:load', function(){
     dataType: 'json'
  })
 
-  }
+
+
+  
  .done(function(users){
   $(".chat__user-search-field chat-group-form__input").empty();
   if (users.length!== 0) {
@@ -48,13 +48,15 @@ $(document).on('turbolinks:load', function(){
       });
     }
   else {
-     appendErrMsgToHTML("一致する名前はありません");
+    appendErrMsgToHTML("一致する名前はありません");
       }
    })
   .fail(function(){ 
     alert('エラー');
   });
+}
 });
+ 
   $(document).on("click",".chat-group-user__btn--add", function(){
     $(".chat-group-user__name").val();
     var id   = $(this).data("user-id")
@@ -66,6 +68,7 @@ $(document).on('turbolinks:load', function(){
     $(this).parent().remove()
   });
 });
+
 
 
 

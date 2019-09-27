@@ -21,15 +21,14 @@ $(document).on('turbolinks:load', function(){
                 </div>
              </div>`
              return html;
-    }  
+    }   
     var reloadMessages = function() {
-      var message_group_url = window.location.href
-      if (message_group_url.match(/\/groups\/\d+\/messages/)) {
       var last_message_id = $('.message:last').data("message-id");
+      var href = `api/messages#index {:format=>"json"}`
+      if (window.location.href.match(/\/groups\/\d+\/messages/)) {
       
-      }
         $.ajax ({
-        url: "api/messages",
+        url: href,
         type: 'GET',
         data: {id: last_message_id},
         dataType: 'json',
@@ -51,6 +50,7 @@ $(document).on('turbolinks:load', function(){
         alert('エラー。');
       });
     }
+  };
   $('#new_message').on('submit', function(e){
   e.preventDefault();
   var formData = new FormData(this);
