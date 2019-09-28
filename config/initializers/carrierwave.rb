@@ -9,10 +9,9 @@ CarrierWave.configure do |config|
     provider: 'AWS',
     aws_access_key_id: Rails.application.secrets.aws_access_key_id,
     aws_secret_access_key: Rails.application.secrets.aws_secret_access_key,
-    
     region:  'ap-northeast-1',
   }
 
-  config.fog_directory  = 'ここにバケット名を入れます'
+  config.fog_directory  = '0223miyutoyo'
   config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/0223miyutoyo'
 end
